@@ -1,0 +1,33 @@
+<div class="container">
+  <h5>Select a Character</h5>
+  <div class="swor-form flex-row">
+    <mat-form-field appearance="fill" class="full-width swor-select">
+      <mat-label>Character</mat-label>
+      <mat-select
+        [(ngModel)]="selectedCharacter"
+        (selectionChange)="setInitialImage()"
+      >
+        <mat-option *ngFor="let character of characters" [value]="character">
+          {{ character }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button
+      class="swor-btn"
+      mat-raised-button
+      color="primary"
+      (click)="randomizeImage()"
+      [disabled]="!randomizeEnabled"
+    >
+      Randomize
+    </button>
+  </div>
+
+  <img
+    *ngIf="imageUrl"
+    [src]="imageUrl"
+    alt="Character Image"
+    class="character-image"
+  />
+</div>

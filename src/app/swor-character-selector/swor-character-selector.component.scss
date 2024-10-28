@@ -1,0 +1,33 @@
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.character-image {
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.swor {
+  &-form {
+    ::ng-deep .mdc-text-field--filled {
+      border-top-right-radius: 0 !important;
+      border-bottom-right-radius: 0 !important;
+    }
+  }
+  &-btn {
+    height: 3.5rem !important;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
