@@ -16,6 +16,6 @@ export class SworCharacterService {
   ];
 
   getImageUrl(character: string, number: number): string {
-    return `assets/img/${character}/${number}.jpg`;
+    return `assets/img/outer-rim/${character}/${number}.jpg`;
   }
 }

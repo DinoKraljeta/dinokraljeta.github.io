@@ -1,0 +1,35 @@
+<div class="war-for-arrakis-container">
+  <h2>Dune: War for Arrakis</h2>
+  <div class="dwfa-form flex-row align-center">
+    <mat-form-field appearance="fill" class="full-width swor-select">
+      <mat-label>Game Round Sequence</mat-label>
+      <mat-select
+        [(ngModel)]="selectedAction.value"
+        (selectionChange)="setImage()"
+      >
+        <mat-option
+          *ngFor="let sequence of gameRoundSequence"
+          [value]="sequence.value"
+        >
+          {{ sequence.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="full-width swor-select">
+      <mat-label>Harkonnen Action</mat-label>
+      <mat-select
+        [(ngModel)]="selectedAction.value"
+        (selectionChange)="setImage()"
+      >
+        <mat-option
+          *ngFor="let action of harkonnenActions"
+          [value]="action.value"
+        >
+          {{ action.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <img *ngIf="imgUrl" [src]="imgUrl" alt="Action" class="action-image" />
+</div>

@@ -12,15 +12,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SworCharacterSelectorComponent } from './swor-character-selector/swor-character-selector.component';
 
 import { SworCharacterService } from './swor-character.service';
+import { DwfaActionService } from './dwfa-action.service';
 import { LandingComponent } from './landing/landing.component';
-import { OuterRimComponent } from './outer-rim/outer-rim.component';
+import { WarForArrakisComponent } from './war-for-arrakis/war-for-arrakis.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SworCharacterSelectorComponent,
     LandingComponent,
-    OuterRimComponent,
+    WarForArrakisComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +34,7 @@ import { OuterRimComponent } from './outer-rim/outer-rim.component';
     MatButtonModule,
     MatToolbarModule,
   ],
-  providers: [SworCharacterService],
+  providers: [SworCharacterService, DwfaActionService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
