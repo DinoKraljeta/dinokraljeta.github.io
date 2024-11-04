@@ -15,6 +15,8 @@ import { SworCharacterService } from './swor-character.service';
 import { DwfaActionService } from './dwfa-action.service';
 import { LandingComponent } from './landing/landing.component';
 import { WarForArrakisComponent } from './war-for-arrakis/war-for-arrakis.component';
+import { CyberpunkComponent } from './cyberpunk/cyberpunk.component';
+import { CyberpunkActionService } from './cyberpunk-action.service';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import { WarForArrakisComponent } from './war-for-arrakis/war-for-arrakis.compon
     SworCharacterSelectorComponent,
     LandingComponent,
     WarForArrakisComponent,
+    CyberpunkComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,7 @@ import { WarForArrakisComponent } from './war-for-arrakis/war-for-arrakis.compon
     MatButtonModule,
     MatToolbarModule,
   ],
-  providers: [SworCharacterService, DwfaActionService],
+  providers: [SworCharacterService, DwfaActionService, CyberpunkActionService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
