@@ -1,8 +1,10 @@
 <mat-toolbar color="primary">
-  <a mat-button routerLink="/">Home</a>
-  <a mat-button routerLink="/outer-rim">Star Wars</a>
-  <a mat-button routerLink="/war-for-arrakis">Dune</a>
-  <a mat-button routerLink="/cyberpunk">Cyberpunk</a>
+  <a mat-button routerLink="/" (click)="setGame('')">Home</a>
+  <ng-container *ngFor="let game of games">
+    <a mat-button [routerLink]="game.url" (click)="setGame(game.base_src)">
+      {{ game.label_short }}
+    </a>
+  </ng-container>
   <span class="spacer"></span>
 </mat-toolbar>
 <router-outlet></router-outlet>

@@ -1,17 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LandingComponent } from './landing/landing.component';
-import { WarForArrakisComponent } from './war-for-arrakis/war-for-arrakis.component';
-import { SworCharacterSelectorComponent } from './swor-character-selector/swor-character-selector.component';
-import { CyberpunkComponent } from './cyberpunk/cyberpunk.component';
+import { AI_GAMES } from './constants';
+import { GameSequenceComponent } from './game-sequence/game-sequence.component';
 
-const routes: Routes = [
-  { path: '', component: LandingComponent },
-  { path: 'outer-rim', component: SworCharacterSelectorComponent },
-  { path: 'war-for-arrakis', component: WarForArrakisComponent },
-  { path: 'cyberpunk', component: CyberpunkComponent },
-  { path: '**', redirectTo: '' },
-];
+const routes: Routes = [{ path: '', component: LandingComponent }];
+
+Object.values(AI_GAMES).forEach((game) =>
+  routes.push({
+    path: game.url,
+    component: GameSequenceComponent,
+    data: { gameKey: game.base_src },
+  })
+);
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

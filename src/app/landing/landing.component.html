@@ -1,12 +1,13 @@
 <div class="landing-container">
   <h1>AI Game Selector</h1>
-  <button mat-raised-button color="primary" routerLink="/outer-rim">
-    Star Wars: Outer Rim
-  </button>
-  <button mat-raised-button color="primary" routerLink="/war-for-arrakis">
-    Dune: War for Arrakis
-  </button>
-  <button mat-raised-button color="primary" routerLink="/cyberpunk">
-    Cyberpunk: Gangs of Night City
-  </button>
+  <ng-container *ngFor="let game of games">
+    <button
+      mat-raised-button
+      color="primary"
+      [routerLink]="game.url"
+      (click)="setGame(game.base_src)"
+    >
+      {{ game.label }}
+    </button>
+  </ng-container>
 </div>

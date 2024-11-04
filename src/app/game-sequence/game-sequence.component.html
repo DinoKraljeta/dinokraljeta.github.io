@@ -1,0 +1,42 @@
+<div *ngIf="currentGame" class="game-sequence-container">
+  <h2>{{ currentGame.label }}</h2>
+  <div class="flex-row">
+    <div
+      *ngFor="let dropdown of currentGame.dropdowns"
+      class="dropdown-section"
+    >
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>{{ dropdown.label }}</mat-label>
+        <mat-select
+          [(ngModel)]="selectedAction.value"
+          (selectionChange)="setInitialImage()"
+        >
+          <mat-option
+            *ngFor="let option of dropdown.options"
+            [value]="option.value"
+          >
+            {{ option.label }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <button
+      *ngIf="currentGame.hasRandomizer"
+      class="random-btn"
+      mat-raised-button
+      color="primary"
+      (click)="randomizeImage()"
+      [disabled]="!randomizeEnabled"
+    >
+      Randomize
+    </button>
+  </div>
+
+  <img
+    *ngIf="imgUrl"
+    [src]="imgUrl"
+    alt="Action Image"
+    class="character-image"
+  />
+</div>

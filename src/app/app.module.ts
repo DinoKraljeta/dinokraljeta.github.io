@@ -9,23 +9,13 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SworCharacterSelectorComponent } from './swor-character-selector/swor-character-selector.component';
 
-import { SworCharacterService } from './swor-character.service';
-import { DwfaActionService } from './dwfa-action.service';
 import { LandingComponent } from './landing/landing.component';
-import { WarForArrakisComponent } from './war-for-arrakis/war-for-arrakis.component';
-import { CyberpunkComponent } from './cyberpunk/cyberpunk.component';
-import { CyberpunkActionService } from './cyberpunk-action.service';
+import { GameSequenceComponent } from './game-sequence/game-sequence.component';
+import { GlobalGameService } from './services/global-game.service';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    SworCharacterSelectorComponent,
-    LandingComponent,
-    WarForArrakisComponent,
-    CyberpunkComponent,
-  ],
+  declarations: [AppComponent, LandingComponent, GameSequenceComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -37,7 +27,7 @@ import { CyberpunkActionService } from './cyberpunk-action.service';
     MatButtonModule,
     MatToolbarModule,
   ],
-  providers: [SworCharacterService, DwfaActionService, CyberpunkActionService],
+  providers: [GlobalGameService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
