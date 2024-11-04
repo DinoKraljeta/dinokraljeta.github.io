@@ -1,5 +1,5 @@
 <div *ngIf="currentGame" class="game-sequence-container">
-  <h2>{{ currentGame.label }}</h2>
+  <div class="header">{{ currentGame.label }}</div>
   <div class="flex-row">
     <div
       *ngFor="let dropdown of currentGame.dropdowns"
