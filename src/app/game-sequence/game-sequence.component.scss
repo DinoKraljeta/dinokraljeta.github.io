@@ -10,12 +10,14 @@
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
+  width: 100vw;
 }
 .header {
   font-size: 20px;
   padding: 16px;
   color: darkgray;
 }
+
 .character-image {
   width: 100%;
   height: auto;

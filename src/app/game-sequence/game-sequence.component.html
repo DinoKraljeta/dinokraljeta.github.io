@@ -4,6 +4,7 @@
     <div
       *ngFor="let dropdown of currentGame.dropdowns"
       class="dropdown-section"
+      [style.width.%]="100 / currentGame.dropdowns.length"
     >
       <mat-form-field appearance="fill" class="full-width">
         <mat-label>{{ dropdown.label }}</mat-label>
