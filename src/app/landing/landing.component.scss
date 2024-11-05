@@ -26,3 +26,11 @@
 button {
   margin-top: 20px;
 }
+@media screen and (max-width: 640px) {
+  .landing-link {
+    img {
+      width: 95%;
+      margin: auto;
+    }
+  }
+}
