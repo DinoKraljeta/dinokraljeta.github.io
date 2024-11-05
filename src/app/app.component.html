@@ -1,10 +1,51 @@
-<mat-toolbar color="primary">
-  <a mat-button routerLink="/" (click)="setGame('')">Home</a>
-  <ng-container *ngFor="let game of games">
-    <a mat-button [routerLink]="game.url" (click)="setGame(game.base_src)">
-      {{ game.label_short }}
-    </a>
-  </ng-container>
-  <span class="spacer"></span>
-</mat-toolbar>
-<router-outlet></router-outlet>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav mode="side" class="sidenav" [opened]="false">
+    <!-- sidenav menu -->
+    <a
+      mat-list-item
+      routerLink="/"
+      routerLinkActive="active-link"
+      [routerLinkActiveOptions]="{ exact: true }"
+      (click)="sidenav.close()"
+      >Home</a
+    >
+    <ng-container *ngFor="let game of games">
+      <a
+        mat-list-item
+        [routerLink]="game.url"
+        routerLinkActive="active-link"
+        (click)="sidenav.close()"
+      >
+        {{ game.label_short }}
+      </a>
+    </ng-container>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <!-- top toolbar for smaller screens -->
+    <mat-toolbar color="primary" class="top-toolbar">
+      <button mat-icon-button (click)="sidenav.toggle()" class="menu-button">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <a
+        mat-button
+        routerLink="/"
+        routerLinkActive="active-link"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >AI Game Selector</a
+      >
+      <span class="spacer"></span>
+      <ng-container *ngIf="!isSmallScreen" class="sidenav-content">
+        <ng-container *ngFor="let game of games">
+          <a mat-button [routerLink]="game.url" routerLinkActive="active-link">
+            {{ game.label_short }}
+          </a>
+        </ng-container>
+      </ng-container>
+    </mat-toolbar>
+
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

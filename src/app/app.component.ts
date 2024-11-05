@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { AI_GAMES, GameKey } from './constants';
-import { GlobalGameService } from './services/global-game.service';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+
+import { AI_GAMES } from './constants';
 
 @Component({
   selector: 'app-root',
@@ -10,10 +11,15 @@ import { GlobalGameService } from './services/global-game.service';
 export class AppComponent {
   title = 'ai-player';
   games = Object.values(AI_GAMES);
+  isSmallScreen = false;
 
-  constructor(private globalGameService: GlobalGameService) {}
+  constructor(private breakpointObserver: BreakpointObserver) {}
 
-  setGame(game: GameKey | '') {
-    this.globalGameService.setCurrentGame(game);
+  ngOnInit(): void {
+    this.breakpointObserver
+      .observe([Breakpoints.Small, Breakpoints.XSmall])
+      .subscribe((result) => {
+        this.isSmallScreen = result.matches;
+      });
   }
 }

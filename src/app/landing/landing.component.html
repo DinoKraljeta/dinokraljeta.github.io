@@ -1,13 +1,11 @@
 <div class="landing-container">
-  <h1>AI Game Selector</h1>
+  <div class="header">AI Game Selector</div>
   <ng-container *ngFor="let game of games">
-    <button
-      mat-raised-button
-      color="primary"
-      [routerLink]="game.url"
-      (click)="setGame(game.base_src)"
-    >
-      {{ game.label }}
-    </button>
+    <a [routerLink]="game.url" class="landing-link">
+      <img
+        [src]="'assets/img/' + game.base_src + '/landing.png'"
+        alt="{{ game.label_short }}"
+      />
+    </a>
   </ng-container>
 </div>

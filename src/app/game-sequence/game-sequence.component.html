@@ -4,9 +4,8 @@
     <div
       *ngFor="let dropdown of currentGame.dropdowns"
       class="dropdown-section"
-      [style.width.%]="100 / currentGame.dropdowns.length"
     >
-      <mat-form-field appearance="fill" class="full-width">
+      <mat-form-field appearance="fill" class="dropdown-field">
         <mat-label>{{ dropdown.label }}</mat-label>
         <mat-select
           [(ngModel)]="selectedAction.value"
@@ -34,10 +33,5 @@
     </button>
   </div>
 
-  <img
-    *ngIf="imgUrl"
-    [src]="imgUrl"
-    alt="Action Image"
-    class="character-image"
-  />
+  <img *ngIf="imgUrl" [src]="imgUrl" alt="Action Image" class="image" />
 </div>

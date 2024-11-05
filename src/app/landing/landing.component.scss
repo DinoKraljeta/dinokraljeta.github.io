@@ -1,9 +1,26 @@
-.landing-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  margin-top: 50px;
+.landing {
+  &-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  &-link {
+    margin: 10px;
+    img {
+      border-radius: 10px;
+    }
+  }
+}
+
+.header {
+  width: 100%;
+  font-size: 28px;
+  padding: 30px;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  margin-bottom: -10px;
+  font-family: "Stardos Stencil";
 }
 
 button {
